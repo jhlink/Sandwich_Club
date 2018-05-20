@@ -31,9 +31,9 @@ public class JsonUtils {
             String sandwichMainName = extractStringFromJSONObject(sandwichNameJsonObj, MAIN_NAME);
             sandwichFromJson.setMainName(sandwichMainName);
 
-            String sandwichAlsoKnownAs  = extractStringFromJSONObject(sandwichNameJsonObj,
+            List<String> sandwichAlsoKnownAs  = extractStringListFromJSONObject(sandwichNameJsonObj,
                     ALSO_KNOWN_AS);
-            sandwichFromJson.setMainName(sandwichAlsoKnownAs);
+            sandwichFromJson.setAlsoKnownAs(sandwichAlsoKnownAs);
 
             // Set sandwich PLACE_OF_ORIGIN property of sandwich object.
             String sandwichPlaceOfOrigin = extractStringFromJSONObject(rootSandwichJson,
