@@ -3,6 +3,7 @@
 
     <!-- Text Data -->
     <string name="test_data_sandwich_main_name">Philly Cheese Steak</string>
+    <string name="test_also_known_name">Philly Cheek</string>
 
     <!-- Detail Activity-->
     <string name="detail_also_known_as_label">Also known as:</string>
