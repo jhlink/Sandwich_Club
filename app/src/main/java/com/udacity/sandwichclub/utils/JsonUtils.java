@@ -79,7 +79,7 @@ public class JsonUtils {
             targetJSONProperty) {
         List<String> ingredientList = new ArrayList<String>();
         try {
-            JSONArray jsonIngredientArray = obj.getJSONArray("ingredients");
+            JSONArray jsonIngredientArray = obj.getJSONArray(targetJSONProperty);
 
             for (int i = 0; i < jsonIngredientArray.length(); i++) {
                 ingredientList.add(jsonIngredientArray.getString(i));

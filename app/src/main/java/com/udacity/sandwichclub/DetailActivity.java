@@ -5,6 +5,7 @@ import android.databinding.DataBindingUtil;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -66,20 +67,22 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private String concatStringList(List<String> inputList) {
-        String concattedList = inputList.get(0);
-        for (int i = 1; i < inputList.size(); i++) {
-            concattedList.concat(", " + inputList.get(i));
+        if (inputList.size() == 0) {
+            return "";
         }
-        return concattedList;
+        StringBuilder concattedList = new StringBuilder(inputList.get(0));
+        for (int i = 0; i < inputList.size(); i++) {
+            concattedList.append(", ").append(inputList.get(i));
+        }
+
+        Log.i("Test", concattedList.toString());
+        return concattedList.toString();
     }
 
     private void populateUI(Sandwich inputSandwich) {
         mBinding.mainNameTv.setText(inputSandwich.getMainName());
         mBinding.originTv.setText(inputSandwich.getPlaceOfOrigin());
         mBinding.descriptionTv.setText(inputSandwich.getDescription());
-
-        Uri imageUri = Uri.parse(inputSandwich.getImage());
-        mBinding.imageIv.setImageURI(imageUri);
 
         String concattedListOfAkaNames = concatStringList(inputSandwich.getAlsoKnownAs());
         mBinding.alsoKnownTv.setText(concattedListOfAkaNames);
