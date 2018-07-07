@@ -26,16 +26,16 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                launchDetailActivity(position);
+                launchDetailActivity(l);
             }
         });
     }
 
-    private void launchDetailActivity(int position) {
+    private void launchDetailActivity(long sandwichNameArrayPosition) {
         Class detailActivity = DetailActivity.class;
-        Context context = MainActivity.this
+        Context context = MainActivity.this;
         Intent intent = new Intent(context, detailActivity);
-        intent.putExtra(DetailActivity.EXTRA_POSITION, position);
+        intent.putExtra(DetailActivity.EXTRA_POSITION, sandwichNameArrayPosition);
         startActivity(intent);
     }
 }
