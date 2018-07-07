@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Class detailActivity = DetailActivity.class;
         Context context = MainActivity.this;
         Intent intent = new Intent(context, detailActivity);
-        intent.putExtra(DetailActivity.EXTRA_POSITION, sandwichNameArrayPosition);
+        intent.putExtra(DetailActivity.EXTRA_POSITION, (int) sandwichNameArrayPosition);
         startActivity(intent);
     }
 }
