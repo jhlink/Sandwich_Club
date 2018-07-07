@@ -2,6 +2,7 @@ package com.udacity.sandwichclub;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
@@ -11,6 +12,9 @@ import com.squareup.picasso.Picasso;
 import com.udacity.sandwichclub.databinding.ActivityDetailBinding;
 import com.udacity.sandwichclub.model.Sandwich;
 import com.udacity.sandwichclub.utils.JsonUtils;
+
+import java.util.List;
+import java.util.StringJoiner;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -48,7 +52,7 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        populateUI();
+        populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
@@ -61,7 +65,26 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void populateUI() {
+    private String concatStringList(List<String> inputList) {
+        String concattedList = inputList.get(0);
+        for (int i = 1; i < inputList.size(); i++) {
+            concattedList.concat(", " + inputList.get(i));
+        }
+        return concattedList;
+    }
 
+    private void populateUI(Sandwich inputSandwich) {
+        mBinding.mainNameTv.setText(inputSandwich.getMainName());
+        mBinding.originTv.setText(inputSandwich.getPlaceOfOrigin());
+        mBinding.descriptionTv.setText(inputSandwich.getDescription());
+
+        Uri imageUri = Uri.parse(inputSandwich.getImage());
+        mBinding.imageIv.setImageURI(imageUri);
+
+        String concattedListOfAkaNames = concatStringList(inputSandwich.getAlsoKnownAs());
+        mBinding.alsoKnownTv.setText(concattedListOfAkaNames);
+
+        String concattedListOfIngredients = concatStringList(inputSandwich.getIngredients());
+        mBinding.ingredientsTv.setText(concattedListOfIngredients);
     }
 }
