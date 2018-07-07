@@ -17,6 +17,7 @@
 
     <!-- Error messages-->
     <string name="detail_error_message">Sandwich data not available</string>
+    <string name="test_origin">Pittsburg, Philadelphia</string>
 
     <string-array name="sandwich_names">
         <item>Ham and cheese sandwich</item>
