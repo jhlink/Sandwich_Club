@@ -1,5 +1,6 @@
 package com.udacity.sandwichclub;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -31,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void launchDetailActivity(int position) {
-        Intent intent = new Intent(this, DetailActivity.class);
+        Class detailActivity = DetailActivity.class;
+        Context context = MainActivity.this
+        Intent intent = new Intent(context, detailActivity);
         intent.putExtra(DetailActivity.EXTRA_POSITION, position);
         startActivity(intent);
     }
