@@ -19,6 +19,7 @@
     <string name="detail_error_message">Sandwich data not available</string>
     <string name="test_origin">Pittsburg, Philadelphia</string>
     <string name="test_ingredients">Cheese, Bread, Roast Beef, Wonder Bread</string>
+    <string name="test_description">Hallmark sandwich from Steel City!!</string>
 
     <string-array name="sandwich_names">
         <item>Ham and cheese sandwich</item>
