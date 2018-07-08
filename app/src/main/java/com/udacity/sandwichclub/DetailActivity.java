@@ -71,7 +71,7 @@ public class DetailActivity extends AppCompatActivity {
             return "";
         }
         StringBuilder concattedList = new StringBuilder(inputList.get(0));
-        for (int i = 0; i < inputList.size(); i++) {
+        for (int i = 1; i < inputList.size(); i++) {
             concattedList.append(", ").append(inputList.get(i));
         }
 
